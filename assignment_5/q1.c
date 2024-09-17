@@ -1,32 +1,33 @@
 #include <stdio.h>
 
-int main() {
-    float marks[5]; // Array to hold marks for 5 subjects
-    float total = 0.0;
-    float average;
-    int i;
+int main()
+{
+    
+    float marks1, marks2, marks3, marks4, marks5;
+    float total, average;
 
-    // Prompt the user to enter marks for 5 subjects
-    printf("Enter marks for 5 subjects:\n");
-    for (i = 0; i < 5; i++) {
-        printf("Subject %d: ", i + 1);
-        scanf("%f", &marks[i]);
+    
+    printf("Enter the marks for five subjects:\n");
+    
+   
+    printf("Subject 1: ");
+    scanf("%f", &marks1);
+    printf("Subject 2: ");
+    scanf("%f", &marks2);
+    printf("Subject 3: ");
+    scanf("%f", &marks3);
+    printf("Subject 4: ");
+    scanf("%f", &marks4);
+    printf("Subject 5: ");
+    scanf("%f", &marks5);
 
-        // Validate input
-        if (marks[i] < 0) {
-            printf("Marks cannot be negative. Please enter a valid mark.\n");
-            return 1;
-        }
-        
-        total += marks[i];
-    }
+    
+    total = marks1 + marks2 + marks3 + marks4 + marks5;
+    average = total / 5.0;
 
-    // Calculate average
-    average = total / 5;
-
-    // Display results
-    printf("Total marks: %.2f\n", total);
-    printf("Average marks: %.2f\n", average);
+    
+    printf("\nTotal Marks: %.2f\n", total);
+    printf("Average Marks: %.2f\n", average);
 
     return 0;
 }

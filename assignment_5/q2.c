@@ -1,32 +1,37 @@
-#include<stdio.h>
+#include <stdio.h>
 
-void print_array(int arr[],int size);
-void accept_array(int arr[],int size);
-
-
-int main(void)
-{	
-	int arr[6];
-	
-	print_array(arr,6);
-	
-	accept_array(arr,6);
-	return 0 ;
-}
-
-void(print_array(int arr[],int size))
+void acceptArrayElements(int array[], int size)
 {
-	int i;
-	printf("Array : ");
-	for(int i=0 ; i<size ; i++);
-		printf("%.2d",arr[i]);
-	printf("\n");
+    printf("Enter %d array elements:\n", size);
+    for (int i = 0; i < size; i++) 
+	{
+        printf("Element %d: ", i + 1);
+        scanf("%d", &array[i]);
+    }
 }
-	
-void(accept_array(int arr[],int size))
+
+
+void printArrayElements(int array[], int size) 
 {
-	int i;
-	printf("Array Elements are : \n");
-	for(int i=0 ; i<size ; i++)
-		scanf("%d",&arr[i]);
+    printf("Array elements are:\n");
+    for (int i = 0; i < size; i++) 
+	{
+        printf("%d ", array[i]);
+    }
+    printf("\n");
 }
+
+int main() 
+{
+    int size = 5;
+    int array[size];
+
+   
+    acceptArrayElements(array, size);
+
+    
+    printArrayElements(array, size);
+
+    return 0;
+}
+

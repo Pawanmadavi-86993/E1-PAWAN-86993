@@ -1,51 +1,59 @@
 #include <stdio.h>
 
 
-int findMax(int arr[], int size) {
-    int max = arr[0]; 
+int findMaximum(int array[], int size) 
+{
+    int max = array[0]; 
 
-    for (int i = 1; i < size; i++) {
-        if (arr[i] > max) {
-            max = arr[i]; 
+   
+    for (int i = 1; i < size; i++) 
+	{
+        if (array[i] > max) 
+		{
+            max = array[i];
         }
     }
-
     return max;
 }
 
 
-int findMin(int arr[], int size) {
-    int min = arr[0]; 
-
-    for (int i = 1; i < size; i++) {
-        if (arr[i] < min) {
-            min = arr[i]; 
-        }
+void acceptArrayElements(int array[], int size) 
+{
+    printf("Enter %d array elements:\n", size);
+    for (int i = 0; i < size; i++) 
+	{
+        printf("Element %d: ", i + 1);
+        scanf("%d", &array[i]);
     }
-
-    return min;
 }
 
 
-void printArray(int arr[], int size) {
-    for (int i = 0; i < size; i++) {
-        printf("%d ", arr[i]);
+void printArrayElements(int array[], int size) 
+{
+    printf("Array elements are:\n");
+    for (int i = 0; i < size; i++) 
+	{
+        printf("%d ", array[i]);
     }
     printf("\n");
 }
 
-int main() {
-    int arr[] = {10, 22, 5, 75, 64};
-    int size = sizeof(arr) / sizeof(arr[0]);
+int main() 
+{
+    int size = 5;
+    int array[size];
 
-    printf("Array elements:\n");
-    printArray(arr, size);
+   
+    acceptArrayElements(array, size);
 
-    int max = findMax(arr, size);
-    int min = findMin(arr, size);
+   
+    printArrayElements(array, size);
 
-    printf("Maximum value: %d\n", max);
-    printf("Minimum value: %d\n", min);
+   
+    int max = findMaximum(array, size);
+
+    
+    printf("The maximum element in the array is: %d\n", max);
 
     return 0;
 }

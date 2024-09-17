@@ -1,25 +1,35 @@
 #include <stdio.h>
 
 
-int linearSearch(int array[], int size, int target) 
+int binarySearch(int array[], int size, int target) 
 {
- 
-    for (int i = 0; i < size; i++) 
+    int left = 0;         
+    int right = size - 1;   
+
+    while (left <= right) 
 	{
-        if (array[i] == target) 
+        int mid = left + (right - left) / 2; 
+
+        if (array[mid] == target)
 		{
-            return i; 
+            return mid; 
+        }
+        if (array[mid] < target)
+		{
+            left = mid + 1; 
+        } else {
+            right = mid - 1; 
         }
     }
+
     return -1; 
 }
 
 
 void acceptArrayElements(int array[], int size)
 {
-    
-	printf("Enter %d array elements:\n", size);
-    for (int i = 0; i < size; i++)
+    printf("Enter %d sorted array elements:\n", size);
+    for (int i = 0; i < size; i++) 
 	{
         printf("Element %d: ", i + 1);
         scanf("%d", &array[i]);
@@ -43,24 +53,24 @@ int main()
     int array[size];
     int target, index;
 
-   
+    
     acceptArrayElements(array, size);
 
-   
+  
     printArrayElements(array, size);
 
     
     printf("Enter the number to search: ");
     scanf("%d", &target);
 
-   
-    index = linearSearch(array, size, target);
+    
+    index = binarySearch(array, size, target);
 
     
     if (index != -1) 
 	{
         printf("Element %d found at index %d.\n", target, index);
-    } 
+    }
 	else
 	{
         printf("Element %d not found in the array.\n", target);
